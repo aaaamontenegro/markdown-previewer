@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markdown Previewer by Paola</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="./js/marked.js"></script>
+
+    <script>
+      function updatePreview(){
+        let previewElement=document.getElementById("preview");
+        let editorValue =document.getElementById("editor").value;
+        let markedUpHTML = marked(editorValue);
+        previewElement.innerHTML = markedUpHTML;
+      }
+      document.onload = setDefault;
+      function setDeafult(){
+      let defaultText = `\
+# Welcome
+## to my  markdown previewer
+[Learn more about Paola](https://github.com/aaaamontenegro).
+
+  \`This is an example of inline code\`
+
+\`\`\`
+ function exampleOf() {
+ return multiLineCodeBlock;
+  }
+\`\`\`
+- And of course there are lists.
+  - Some are bulleted.
+     - With different indentation levels.
+        - That look like this.
+
+    -list
+    -things
+    -as well
+
+> this is an example of blockq quote!
+
+![Paola](https://play-lh.googleusercontent.com/p9tjtYUe1FL9XxMbfhIEyLf4Frjcq7GVNdaQs0hHyAtNdYy18hOInpUBydyQxFzyNdQ)
+**This is an example of Bolded Text**`;
+
+    let editorField = document.getElementById("editor");
+    let previewElement = document.getElementById("preview");
+    editorField.value = defaultText;
+    previewElement.innerHTML = marked(defaultText);
+      }
+    </script>
+  </head>
+  <body onload="setDeafult()">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col text-center bg-dark text-white">
+          <h1>Markdown Previewer by Paola</h1>
+        </div>
+      </div>
+        <div class="row">
+          <!---editor--->
+          <div class="col-6 bg-secondary" onkeyup="updatePreview()">
+            <p>The editor will be here</p>
+            <textarea name="editor" id="editor"></textarea>
+          </div>
+          <!---previwer--->
+          <div class="col-6 bg-info">
+            <p>The previer will be here</p>
+            <div id="preview"></div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!--popperjs-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <!--bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!--freeCodeCamp testing script-->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js""></script>
+  </body>
+</html>
